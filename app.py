@@ -21,7 +21,7 @@ def generate_catchphrase():
 
 @app.route("/")
 def index():
-    return render_template("logos.html")
+    return render_template("index.html")
 
 @app.route("/catchphrases")
 def catchphrases():
