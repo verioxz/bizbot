@@ -19,29 +19,9 @@ def generate_catchphrase():
     response = palm.chat(model=model, messages=["Generate 10 catchphrases for a business, without any description."])
     return response.last
 
-def generate_logo(text="Logo"):
-    # Create an image with white background
-    img = Image.new('RGB', (200, 100), color=(255, 255, 255))
-    d = ImageDraw.Draw(img)
-    
-    # Define a font
-    try:
-        font = ImageFont.truetype("arial.ttf", 40)
-    except IOError:
-        font = ImageFont.load_default()
-
-    # Add text to the image
-    d.text((10, 30), text, fill=(0, 0, 0), font=font)
-    
-    # Save the image to a BytesIO object
-    img_io = BytesIO()
-    img.save(img_io, 'PNG')
-    img_io.seek(0)
-    return img_io
-
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("logos.html")
 
 @app.route("/catchphrases")
 def catchphrases():
@@ -50,8 +30,7 @@ def catchphrases():
 
 @app.route("/logos")
 def logos():
-    logo_image = generate_logo("Your Logo")
-    return send_file(logo_image, mimetype='image/png')
+    return render_template("logos.html")
 
 @app.route("/business_ideas")
 def business_ideas():
