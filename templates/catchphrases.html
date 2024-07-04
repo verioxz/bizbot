@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catchphrases</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://bmmagazine.co.uk/wp-content/uploads/2018/12/shutterstock_535428454-e1543932963105.jpg'); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8); /* Optional: Adds a white background with transparency to make text readable */
+            padding: 50px;
+            border-radius: 10px;
+        }
+        .btn-secondary {
+            transition: transform 0.3s ease;
+        }
+        .btn-secondary:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Catchphrases</h1>
+        <p>{{ catchphrase }}</p>
+        <a href="/" class="btn btn-secondary">Back</a>
+    </div>
+</body>
+</html>

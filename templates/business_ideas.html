@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Ideas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://imageio.forbes.com/specials-images/imageserve/5fca87f3ce4ca55e8985a10a/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds'); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8); /* Optional: Adds a white background with transparency to make text readable */
+            padding: 50px;
+            border-radius: 10px;
+        }
+        .btn-secondary {
+            transition: transform 0.3s ease, background-color 0.3s ease; /* Adding transition for smooth animation */
+        }
+        .btn-secondary:hover {
+            transform: scale(1.1); /* Scale the button to 110% */
+            background-color: #5a6268; /* Slightly darken the button on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Business Ideas</h1>
+        <p>{{ business_idea }}</p>
+        <a href="/" class="btn btn-secondary">Back</a>
+    </div>
+</body>
+</html>

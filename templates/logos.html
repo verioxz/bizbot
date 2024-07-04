@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Logo Creator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fsearch%2Fimages%3Fk%3Dchat%2Bbackground&psig=AOvVaw3D0o_dcpt9MXKNWiFnolOJ&ust=1720186518379000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNDS6aTAjYcDFQAAAAAdAAAAABAK'); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Add transparency to the background to make text readable */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #555;
+            display: block;
+            text-align: left;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            margin-bottom: 10px; /* Space between the buttons */
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+
+        .back-button {
+            background-color: #6c757d;
+        }
+
+        .back-button:hover {
+            background-color: #5a6268;
+            transform: scale(1.1);
+        }
+
+        canvas {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Logo Creator</h1>
+        <form id="logoForm">
+            <label for="companyName">Company Name:</label>
+            <input type="text" id="companyName" name="companyName" placeholder="Enter your company name" required>
+
+            <label for="textColor">Select Text Color:</label>
+            <select id="textColor" name="textColor">
+                <option value="#000000">Black</option>
+                <option value="#ffffff">White</option>
+                <option value="#ff0000">Red</option>
+                <option value="#00ff00">Green</option>
+                <option value="#0000ff">Blue</option>
+            </select>
+
+            <label for="backgroundColor">Select Background Color:</label>
+            <select id="backgroundColor" name="backgroundColor">
+                <option value="#ffffff">White</option>
+                <option value="#000000">Black</option>
+                <option value="#ff0000">Red</option>
+                <option value="#00ff00">Green</option>
+                <option value="#0000ff">Blue</option>
+            </select>
+
+            <button type="button" onclick="createLogo()">Create Logo</button>
+            <a href="/" class="btn back-button">Back</a>
+        </form>
+
+        <canvas id="logoCanvas" width="400" height="200"></canvas>
+    </div>
+
+    <script>
+        function createLogo() {
+            const companyName = document.getElementById('companyName').value.trim();
+            const textColor = document.getElementById('textColor').value;
+            const backgroundColor = document.getElementById('backgroundColor').value;
+
+            const canvas = document.getElementById('logoCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Background color
+            ctx.fillStyle = backgroundColor;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Text color
+            ctx.fillStyle = textColor;
+            ctx.font = 'bold 24px Arial';
+            ctx.textBaseline = 'middle';
+            ctx.textAlign = 'center';
+            ctx.fillText(companyName, canvas.width / 2, canvas.height / 2);
+        }
+    </script>
+</body>
+</html>
